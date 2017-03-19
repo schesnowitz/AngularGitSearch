@@ -14,7 +14,7 @@ export class GithubService{
 
   constructor(private _http: Http) { //undersocre not needed but nice when creating service
     console.warn('github service ready...');
-    this.username = 'schesnowitz'
+    // this.username = 'schesnowitz'
   }
 
   getUser(){
@@ -26,4 +26,8 @@ export class GithubService{
     return this._http.get('http://api.github.com/users/'+this.username+'/repos?client_id='+this.client_id+'&client_secret='+this.client_secret) //to use http module we need to inject into constructor
       .map(res => res.json()) //returns observable in json format
   }  
+
+  updateUser(username: string){
+    this.username = username; 
+  }
 }
